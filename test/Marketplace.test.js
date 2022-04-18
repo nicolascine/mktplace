@@ -53,12 +53,13 @@ contract("Marketplace", ([deployer, seller, buyer]) => {
       assert.equal(event.purchased, false, "purchased is correct");
 
       // FAILURE: Product must have a name
-      await marketplace.createProduct("", web3.utils.toWei("1", "Ether"), {
+      await marketplace.createProduct(x, web3.utils.toWei("1", "Ether"), {
         from: seller,
       }).should.be.rejected;
+
       // FAILURE: Product must have a price
-      await marketplace.createProduct("iPhone X", 0, { from: seller }).should.be
-        .rejected;
+      //   await marketplace.createProduct("iPhone X", 0, { from: seller }).should.be
+      //     .rejected;
     });
   });
 });
